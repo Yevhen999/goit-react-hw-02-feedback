@@ -1,7 +1,21 @@
+.feedbackWrapper {
+  border: 1px solid tomato;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .btnFeedback {
-  margin-right: 10px;
+  display: block;
+  padding: 10px 20px;
   border-radius: 8px;
   border-color: tomato;
   color: tomato;
   background-color: yellow;
+}
+
+.btnFeedback:not(:last-child) {
+  margin-right: 20px;
 }
