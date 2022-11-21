@@ -7,11 +7,22 @@ class Feedback extends Component {
     neutral: 0,
     bad: 0,
   };
-  handleIncrement = () => {
-    console.log(this.state.good);
+  handleIncrementGoodFeedback = () => {
+    this.setState(curState => {
+      return { good: curState.good + 1 };
+    });
+  };
 
-    this.setState({ good: (this.state.good += 1) });
-    console.log(this.state.good);
+  handleIncrementNeutralFeedback = () => {
+    this.setState(curState => {
+      return { neutral: curState.neutral + 1 };
+    });
+  };
+
+  handleIncrementBadFeedback = () => {
+    this.setState(curState => {
+      return { bad: curState.bad + 1 };
+    });
   };
 
   render() {
@@ -22,25 +33,21 @@ class Feedback extends Component {
           <button
             className={css.btnFeedback}
             type="button"
-            onClick={this.handleIncrement}
+            onClick={this.handleIncrementGoodFeedback}
           >
             Good
           </button>
           <button
             className={css.btnFeedback}
             type="button"
-            onClick={() => {
-              console.log('Клік');
-            }}
+            onClick={this.handleIncrementNeutralFeedback}
           >
             Neutral
           </button>
           <button
             className={css.btnFeedback}
             type="button"
-            onClick={() => {
-              console.log('Клік');
-            }}
+            onClick={this.handleIncrementBadFeedback}
           >
             Bad
           </button>
