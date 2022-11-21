@@ -56,8 +56,16 @@ class Feedback extends Component {
         <p className={css.statisticsCount}>Good: {this.state.good}</p>
         <p className={css.statisticsCount}>Neutral: {this.state.neutral}</p>
         <p className={css.statisticsCount}>Bad: {this.state.bad}</p>
-        <p className={css.statisticsCount}>Total: </p>
-        <p className={css.statisticsCount}>Positive feedback: </p>
+        <p className={css.statisticsCount}>
+          Total: {this.state.good + this.state.neutral + this.state.bad}
+        </p>
+        <p className={css.statisticsCount}>
+          Positive feedback:{' '}
+          {(this.state.good /
+            (this.state.good + this.state.neutral + this.state.bad)) *
+            100}
+          %
+        </p>
       </div>
     );
   }
