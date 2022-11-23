@@ -2,11 +2,22 @@ import { Component } from 'react';
 import css from './Feedback.module.css';
 
 class Feedback extends Component {
+  static defaultProps = {
+    initialTotal: 0,
+    initialPositive: 0,
+  };
+
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
+
+  countTotalFeedback = () => {
+    const total = this.state.good + this.state.neutral + this.state.bad;
+    return total;
+  };
+
   handleIncrementGoodFeedback = () => {
     this.setState(curState => {
       return { good: curState.good + 1 };
@@ -57,7 +68,7 @@ class Feedback extends Component {
         <p className={css.statisticsCount}>Neutral: {this.state.neutral}</p>
         <p className={css.statisticsCount}>Bad: {this.state.bad}</p>
         <p className={css.statisticsCount}>
-          Total: {this.state.good + this.state.neutral + this.state.bad}
+          Total: {this.countTotalFeedback()}
         </p>
         <p className={css.statisticsCount}>
           Positive feedback:{' '}
