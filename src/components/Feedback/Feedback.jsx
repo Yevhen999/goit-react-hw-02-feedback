@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import css from './Feedback.module.css';
 import Statistics from './Statistics';
+import FeedbackOptions from './FeedbackOptions';
 
 class Feedback extends Component {
   state = {
@@ -42,7 +43,14 @@ class Feedback extends Component {
     return (
       <div className={css.feedbackWrapper}>
         <h2>Please leave feedback</h2>
-        <div className={css.btnWrapper}>
+        <FeedbackOptions
+          options={
+            (this.handleIncrementGoodFeedback,
+            this.handleIncrementNeutralFeedback,
+            this.handleIncrementBadFeedback)
+          }
+        />
+        {/* <div className={css.btnWrapper}>
           <button
             className={css.btnFeedback}
             type="button"
@@ -64,7 +72,7 @@ class Feedback extends Component {
           >
             Bad
           </button>
-        </div>
+        </div> */}
         <Statistics
           good={this.state.good}
           neutral={this.state.neutral}
