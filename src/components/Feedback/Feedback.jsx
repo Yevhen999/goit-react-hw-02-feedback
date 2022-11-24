@@ -19,22 +19,23 @@ class Feedback extends Component {
     return ((this.state.good / this.countTotalFeedback()) * 100).toFixed(0);
   };
 
-  handleIncrementGoodFeedback = () => {
-    this.setState(curState => {
-      return { good: curState.good + 1 };
-    });
-  };
-
-  handleIncrementNeutralFeedback = () => {
-    this.setState(curState => {
-      return { neutral: curState.neutral + 1 };
-    });
-  };
-
-  handleIncrementBadFeedback = () => {
-    this.setState(curState => {
-      return { bad: curState.bad + 1 };
-    });
+  handleIncrementFeedback = event => {
+    const text = event.target.textContent;
+    if (text === 'Good') {
+      this.setState(curState => {
+        return { good: curState.good + 1 };
+      });
+    }
+    if (text === 'Neutral') {
+      this.setState(curState => {
+        return { neutral: curState.neutral + 1 };
+      });
+    }
+    if (text === 'Bad') {
+      this.setState(curState => {
+        return { bad: curState.bad + 1 };
+      });
+    }
   };
 
   render() {
@@ -43,32 +44,26 @@ class Feedback extends Component {
     return (
       <div className={css.feedbackWrapper}>
         <h2>Please leave feedback</h2>
-        <FeedbackOptions
-          options={
-            (this.handleIncrementGoodFeedback,
-            this.handleIncrementNeutralFeedback,
-            this.handleIncrementBadFeedback)
-          }
-        />
+        <FeedbackOptions options={this.handleIncrementFeedback} />
         {/* <div className={css.btnWrapper}>
           <button
             className={css.btnFeedback}
             type="button"
-            onClick={this.handleIncrementGoodFeedback}
+            onClick={this.handleIncrementFeedback}
           >
             Good
           </button>
           <button
             className={css.btnFeedback}
             type="button"
-            onClick={this.handleIncrementNeutralFeedback}
+            onClick={this.handleIncrementFeedback}
           >
             Neutral
           </button>
           <button
             className={css.btnFeedback}
             type="button"
-            onClick={this.handleIncrementBadFeedback}
+            onClick={this.handleIncrementFeedback}
           >
             Bad
           </button>
