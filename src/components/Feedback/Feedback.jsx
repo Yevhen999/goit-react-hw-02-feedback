@@ -43,31 +43,11 @@ class Feedback extends Component {
     const percentage = this.countPositiveFeedbackPercentage();
     return (
       <div className={css.feedbackWrapper}>
-        <h2>Please leave feedback</h2>
-        <FeedbackOptions options={this.handleIncrementFeedback} />
-        {/* <div className={css.btnWrapper}>
-          <button
-            className={css.btnFeedback}
-            type="button"
-            onClick={this.handleIncrementFeedback}
-          >
-            Good
-          </button>
-          <button
-            className={css.btnFeedback}
-            type="button"
-            onClick={this.handleIncrementFeedback}
-          >
-            Neutral
-          </button>
-          <button
-            className={css.btnFeedback}
-            type="button"
-            onClick={this.handleIncrementFeedback}
-          >
-            Bad
-          </button>
-        </div> */}
+        <FeedbackOptions
+          options={this.handleIncrementFeedback}
+          onLeaveFeedback={'Please leave feedback'}
+        />
+
         <Statistics
           good={this.state.good}
           neutral={this.state.neutral}

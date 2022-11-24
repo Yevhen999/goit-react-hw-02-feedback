@@ -1,32 +1,22 @@
 import React from 'react';
 import css from './Feedback.module.css';
 
-const FeedbackOptions = ({ options }) => {
-  console.log({ options });
+const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <div className={css.btnWrapper}>
-      <button
-        className={css.btnFeedback}
-        type="button"
-        onClick={options.handleIncrementFeedback}
-      >
-        Good
-      </button>
-      <button
-        className={css.btnFeedback}
-        type="button"
-        onClick={options.handleIncrementFeedback}
-      >
-        Neutral
-      </button>
-      <button
-        className={css.btnFeedback}
-        type="button"
-        onClick={options.handleIncrementFeedback}
-      >
-        Bad
-      </button>
-    </div>
+    <>
+      <h2>{onLeaveFeedback}</h2>
+      <div className={css.btnWrapper}>
+        <button className={css.btnFeedback} type="button" onClick={options}>
+          Good
+        </button>
+        <button className={css.btnFeedback} type="button" onClick={options}>
+          Neutral
+        </button>
+        <button className={css.btnFeedback} type="button" onClick={options}>
+          Bad
+        </button>
+      </div>
+    </>
   );
 };
 
