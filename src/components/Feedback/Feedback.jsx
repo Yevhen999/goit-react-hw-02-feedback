@@ -3,6 +3,7 @@ import css from './Feedback.module.css';
 import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
 import Section from './Section';
+import Notification from './Notification';
 
 class Feedback extends Component {
   state = {
@@ -58,6 +59,7 @@ class Feedback extends Component {
             total={total}
             percentage={percentage}
           />
+          {total === 0 && <Notification message={'There is no feedback'} />}
         </Section>
       </div>
     );
