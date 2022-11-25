@@ -2,6 +2,7 @@ import { Component } from 'react';
 import css from './Feedback.module.css';
 import Statistics from './Statistics';
 import FeedbackOptions from './FeedbackOptions';
+import Section from './Section';
 
 class Feedback extends Component {
   state = {
@@ -43,18 +44,21 @@ class Feedback extends Component {
     const percentage = this.countPositiveFeedbackPercentage();
     return (
       <div className={css.feedbackWrapper}>
-        <FeedbackOptions
-          options={this.handleIncrementFeedback}
-          onLeaveFeedback={'Please leave feedback'}
-        />
-
-        <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          total={total}
-          percentage={percentage}
-        />
+        <Section title={'Please leave feedback'}>
+          <FeedbackOptions
+            options={this.handleIncrementFeedback}
+            onLeaveFeedback={'Please leave feedback'}
+          />
+        </Section>
+        <Section>
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={total}
+            percentage={percentage}
+          />
+        </Section>
       </div>
     );
   }
