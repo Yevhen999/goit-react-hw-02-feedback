@@ -50,7 +50,7 @@ class Feedback extends Component {
             onLeaveFeedback={'Please leave feedback'}
           />
         </Section>
-        <Section>
+        <Section title={'Statistics'}>
           <Statistics
             good={this.state.good}
             neutral={this.state.neutral}
