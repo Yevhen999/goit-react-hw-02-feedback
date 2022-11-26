@@ -26,6 +26,15 @@ h2 {
   margin-right: 20px;
 }
 
+.btnFeedback:hover {
+  transform: scale(1.1);
+}
+
+.btnFeedback:focus {
+  color: yellow;
+  background-color: tomato;
+}
+
 .statisticsCount {
   color: rgb(210, 66, 30);
   margin-top: 10px;
