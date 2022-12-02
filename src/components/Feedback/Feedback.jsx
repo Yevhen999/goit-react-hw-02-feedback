@@ -22,23 +22,10 @@ class Feedback extends Component {
     return ((this.state.good / this.countTotalFeedback()) * 100).toFixed(0);
   };
 
-  handleIncrementFeedback = event => {
-    const text = event.target.textContent;
-    if (text === 'Good') {
-      this.setState(curState => {
-        return { good: curState.good + 1 };
-      });
-    }
-    if (text === 'Neutral') {
-      this.setState(curState => {
-        return { neutral: curState.neutral + 1 };
-      });
-    }
-    if (text === 'Bad') {
-      this.setState(curState => {
-        return { bad: curState.bad + 1 };
-      });
-    }
+  handleIncrementFeedback = option => {
+    this.setState(curState => ({
+      [option]: curState[option] + 1,
+    }));
   };
 
   render() {
@@ -49,8 +36,8 @@ class Feedback extends Component {
       <div className={css.feedbackWrapper}>
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
-            options={this.handleIncrementFeedback}
-            onLeaveFeedback={'Please leave feedback'}
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.handleIncrementFeedback}
           />
         </Section>
         <Section title={'Statistics'}>
