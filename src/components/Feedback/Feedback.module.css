@@ -9,6 +9,7 @@ h2 {
 .btnWrapper {
   display: flex;
   justify-content: center;
+  gap: 20px;
 }
 
 .btnFeedback {
@@ -20,10 +21,7 @@ h2 {
   border-color: tomato;
   color: tomato;
   background-color: yellow;
-}
-
-.btnFeedback:not(:last-child) {
-  margin-right: 20px;
+  text-transform: capitalize;
 }
 
 .btnFeedback:hover {
